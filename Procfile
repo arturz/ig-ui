@@ -1,1 +1,1 @@
-web: cd www && node dist/main
+web: node server
