@@ -14,16 +14,18 @@ const SubmitButtonContainer = styled.div`
   justify-content: center;
 `;
 
-export default () => (
-  <PageWrapper>
-    <Box>
-      <ParagraphHeader>Purpose</ParagraphHeader>
-      <Paragraph>This application allows you to automatize common tasks on Instagram.</Paragraph>
-    </Box>
-    <SubmitButtonContainer layout>
-      <Link to="/login">
-        <ButtonSubmit>Proceed</ButtonSubmit>
-      </Link>
-    </SubmitButtonContainer>
-  </PageWrapper>
-);
+export default function Home() {
+  return (
+    <PageWrapper>
+      <Box>
+        <ParagraphHeader>Purpose</ParagraphHeader>
+        <Paragraph>This application allows you to automatize common tasks on Instagram.</Paragraph>
+      </Box>
+      <SubmitButtonContainer layout>
+        <Link to="/login">
+          <ButtonSubmit>Proceed</ButtonSubmit>
+        </Link>
+      </SubmitButtonContainer>
+    </PageWrapper>
+  );
+}

@@ -17,7 +17,7 @@ export default function AppRightPanel({ botId, commands: grouppedCommands }) {
     <Box transition={{ delayChildren: 1, staggerChildren: 0.5 }} initial="hidden" animate="visible">
       <ParagraphHeader variants={appRightPanelSection}>Available actions</ParagraphHeader>
       {grouppedCommands.map(({ type, commands }) => (
-        <AppRightPanelSection>
+        <AppRightPanelSection key={type}>
           <ParagraphSubheader>{type}</ParagraphSubheader>
           {commands.map(({ name, title }) => (
             <CommandButton botId={botId} name={name} title={title} key={name} />

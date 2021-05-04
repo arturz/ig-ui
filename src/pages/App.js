@@ -28,7 +28,7 @@ const Box = styled.div`
   ${assignBoxCss}
 `;
 
-export default (props) => {
+export default function App(props) {
   const {
     location: { state },
   } = props;
@@ -68,4 +68,4 @@ export default (props) => {
       </Box>
     </PageWrapper>
   );
-};
+}

@@ -31,7 +31,7 @@ const options = [
   { value: OWN_ACCOUNT, title: 'My own account' },
 ];
 
-export default () => {
+export default function Login() {
   const [checked, setChecked] = useState(options[0].value);
   const [credentials, setCredentials] = useState({
     login: '',
@@ -77,4 +77,4 @@ export default () => {
       </Box>
     </PageWrapper>
   );
-};
+}
