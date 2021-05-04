@@ -1,0 +1,35 @@
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-size: 20px;
+  background: rgb(100, 0, 123);
+  background: radial-gradient(circle, rgba(100, 0, 123, 1) 0%, rgba(62, 20, 86, 1) 100%);
+}
+
+#root {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+body::-webkit-scrollbar {
+  width: 17px;
+  background: rgba(62, 20, 86, 1);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: whitesmoke;
+  outline: 1px solid black;
+}
