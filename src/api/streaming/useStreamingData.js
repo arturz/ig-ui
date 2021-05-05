@@ -18,7 +18,7 @@ export default function useStreamingData(botId) {
       }
     }
 
-    eventSource.current = createEventSource(`${SERVER}/streaming/${botId}`);
+    eventSource.current = createEventSource(`${SERVER}streaming/${botId}`);
     eventSource.current.addEventListener('message', updateData);
     console.log("eventSource.current.addEventListener('message')");
 
