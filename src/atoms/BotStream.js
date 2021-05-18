@@ -7,7 +7,6 @@ import simpleHiddenVariants from '../variants/simpleHiddenVariant';
 const Image = styled(motion.img)`
   width: 100%;
   height: 100%;
-  position: fixed;
   user-select: none;
 `;
 

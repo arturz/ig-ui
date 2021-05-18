@@ -4,8 +4,8 @@ export default styled.label`
   display: block;
   font-size: 1rem;
   color: #ccc;
-  font-family: 'Roboto';
-  font-weight: 300;
+  font-family: 'Poppins', Roboto, Helvetica, sans-serif;
+  font-weight: 400;
   text-transform: lowercase;
   margin-bottom: 0.25rem;
 `;

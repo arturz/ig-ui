@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { motion } from 'framer-motion';
+import { useRef } from 'react';
 import CircleOutline from '../atoms/CircleOutline';
 import RadioCircle from '../atoms/RadioCircle';
 import Text from '../atoms/Text';
@@ -38,20 +39,28 @@ const Input = styled.input`
   display: none;
 `;
 
-export default function Radio({ name, value, children, checked, onChangeChecked }) {
+export default function Radio({ name, value, children, checked: initialChecked, onChangeChecked }) {
+  function onChange(e) {
+    onChangeChecked(e.currentTarget.value);
+  }
+
+  const inputRef = useRef({ checked: initialChecked });
+
   return (
     <div>
       <Input
+        ref={inputRef}
         type="radio"
         name={name}
         value={value}
         id={`option-${value}`}
-        onChange={(e) => onChangeChecked(e.currentTarget.value)}
+        initialChecked={initialChecked}
+        onChange={onChange}
       />
-      <Label htmlFor={`option-${value}`} data-checked={checked ? '1' : undefined}>
+      <Label htmlFor={`option-${value}`} data-checked={inputRef.current.checked ? '1' : undefined}>
         <CircleContainer className="circle-container">
           <RadioCircle />
-          {checked && <CircleOutline layoutId={name} />}
+          {inputRef.current.checked && <CircleOutline layoutId={name} />}
         </CircleContainer>
         <Text>{children}</Text>
       </Label>

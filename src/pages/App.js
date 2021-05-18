@@ -1,6 +1,8 @@
 import styled from '@emotion/styled';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
+import exitBot from '../api/bots/exitBot';
+import exitBotUsingBeacon from '../api/bots/exitBotUsingBeacon';
 import getCommands from '../api/bots/getCommands';
 import startBot from '../api/bots/startBot';
 import AppRightPanel from '../organisms/AppRightPanel';
@@ -38,6 +40,7 @@ export default function App(props) {
   const [commands, setCommands] = useState(null);
   const [loaded, setLoaded] = useState(false);
 
+  // request new bot instance
   useEffect(() => {
     async function start() {
       try {
@@ -54,6 +57,23 @@ export default function App(props) {
     start();
   }, []);
 
+  // remove bot automatically on leave
+  useEffect(() => {
+    function onUnload() {
+      if (botId) {
+        exitBotUsingBeacon(botId);
+        exitBot(botId);
+      }
+    }
+
+    window.addEventListener('unload', onUnload);
+
+    return function clearOnUnload() {
+      window.removeEventListener('unload', onUnload);
+    };
+  }, [botId]);
+
+  // fetch commands
   useEffect(() => {
     if (botId !== null) {
       getCommands(botId).then(setCommands).catch(toast.error);

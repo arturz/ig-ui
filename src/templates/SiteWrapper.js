@@ -18,7 +18,7 @@ export default function MainTemplate({ children }) {
     <>
       <WrapperForFooter>
         <Center>
-          <Header key="header" />
+          <Header />
           {children}
         </Center>
       </WrapperForFooter>

@@ -5,7 +5,7 @@ import { PHONE_SCREEN_RATIO } from '../config';
 function assignPhoneFrameCss({ loaded }) {
   if (loaded) {
     return `
-      transform: translateY(0) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+      transform: translateY(0deg) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
       box-shadow: 0px 3px 0 #BBB, 0px 4px 0 #BBB, 0px 5px 0 #BBB, 0px 7px 0 #BBB, 0px 10px 20px #666;
     `;
   }
@@ -21,8 +21,15 @@ const Perspective = styled(motion.div)`
 `;
 
 const PhoneFrameStyled = styled(motion.div)`
-  width: 14rem;
-  height: calc(${PHONE_SCREEN_RATIO} * 14rem);
+  width: 10rem;
+  height: calc(${PHONE_SCREEN_RATIO} * 10rem);
+  @media screen and (min-width: 650px) {
+    & {
+      width: 14rem;
+      height: calc(${PHONE_SCREEN_RATIO} * 14rem);
+    }
+  }
+
   box-sizing: content-box;
   position: relative;
   background: white;

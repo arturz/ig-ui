@@ -1,10 +1,6 @@
 import { SERVER } from '../../config';
+import myCustomFetch from '../myCustomFetch';
 
-export default async function getBotInfo(botId) {
-  const response = await fetch(`${SERVER}bots/${botId}`);
-  const json = await response.json();
-  if (response.ok) {
-    return json.message;
-  }
-  throw json.message;
+export default function getBotInfo(botId) {
+  return myCustomFetch(`${SERVER}bots/${botId}`);
 }

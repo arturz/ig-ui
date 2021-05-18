@@ -6,11 +6,11 @@ const Container = styled.div`
   margin-bottom: 1rem;
 `;
 
-export default function LabeledTextInput({ label, value = '', onChange }) {
+export default function LabeledTextInput({ label, value, onChange }) {
   return (
     <Container>
-      <InputLabel htmlFor={`label-${label}`}>{label}</InputLabel>
-      <TextInput id={`label-${label}`} value={value} onChange={onChange} />
+      <InputLabel htmlFor={`${label}-field`}>{label}</InputLabel>
+      <TextInput id={`${label}-field`} name={label} value={value} onChange={onChange} />
     </Container>
   );
 }

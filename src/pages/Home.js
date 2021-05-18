@@ -18,8 +18,10 @@ export default function Home() {
   return (
     <PageWrapper>
       <Box>
-        <ParagraphHeader>Purpose</ParagraphHeader>
-        <Paragraph>This application allows you to automatize common tasks on Instagram.</Paragraph>
+        <ParagraphHeader>Hello!</ParagraphHeader>
+        <Paragraph>
+          This application shows how commonly made actions on Instagram can be automatized.
+        </Paragraph>
       </Box>
       <SubmitButtonContainer layout>
         <Link to="/login">

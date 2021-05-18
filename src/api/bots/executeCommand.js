@@ -1,15 +1,10 @@
 import { SERVER } from '../../config';
+import myCustomFetch from '../myCustomFetch';
 
-export default async function executeCommand(botId, name, payload) {
-  const response = await fetch(`${SERVER}bots/${botId}/command`, {
+export default function executeCommand(botId, name, payload) {
+  return myCustomFetch(`${SERVER}bots/${botId}/command`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ name, payload }),
   });
-
-  const json = await response.json();
-  if (response.ok) {
-    return json.message;
-  }
-  throw json.message;
 }

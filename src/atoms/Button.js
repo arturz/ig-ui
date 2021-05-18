@@ -3,13 +3,22 @@ import { motion } from 'framer-motion';
 import button from '../variants/button';
 
 const StyledMotionButton = styled(motion.button)`
-  padding: 0.7rem 1rem;
+  position: relative;
   background: transparent;
   border-radius: 2.5rem;
   border: 1px solid white;
-  cursor: pointer;
+
+  ${({ disabled }) => (disabled ? '' : 'cursor: pointer;')}
   color: white;
-  font-size: 0.9rem;
+  font-size: calc(1vw + 0.5rem);
+  padding: 0.5rem 0.75rem;
+  @media screen and (min-width: 650px) {
+    & {
+      font-size: 0.9rem;
+      padding: 0.7rem 1rem;
+    }
+  }
+
   font-family: 'Roboto', sans-serif;
   letter-spacing: 2px;
   font-weight: 400;
@@ -17,7 +26,7 @@ const StyledMotionButton = styled(motion.button)`
   margin-bottom: 0.5rem;
 `;
 
-export default function Button({ onClick, children }) {
+export default function Button({ onClick, children, disabled }) {
   return (
     <StyledMotionButton
       {...(onClick && {
@@ -26,8 +35,9 @@ export default function Button({ onClick, children }) {
           onClick(e);
         },
       })}
-      variants={button}
+      variants={disabled ? undefined : button}
       whileHover="hover"
+      disabled={disabled ? 1 : undefined}
     >
       {children}
     </StyledMotionButton>

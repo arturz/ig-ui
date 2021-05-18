@@ -9,8 +9,8 @@ const Container = styled.div`
 export default function LabeledPasswordInput({ label, value, onChange }) {
   return (
     <Container>
-      <InputLabel htmlFor={`label-${label}`}>{label}</InputLabel>
-      <PasswordInput id={`label-${label}`} value={value} onChange={onChange} />
+      <InputLabel htmlFor={`${label}-field`}>{label}</InputLabel>
+      <PasswordInput id={`${label}-field`} value={value} onChange={onChange} />
     </Container>
   );
 }

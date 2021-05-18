@@ -38,6 +38,7 @@ export default function CircleOutline({ layoutId, thin }) {
         damping: 25,
       }}
       thin={thin}
+      data-testid="circle-outline"
     />
   );
 }

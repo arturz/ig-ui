@@ -12,9 +12,9 @@ const Step = styled(motion.li)`
 
 export default function CircleStep({ active }) {
   return (
-    <Step variants={circleStep} active={active}>
+    <Step variants={circleStep} active={active ? 1 : 0} data-testid="circle-step">
       <Circle />
-      {active && <CircleOutline layoutId="step" thin />}
+      {active && <CircleOutline layoutId="step" thin={1} />}
     </Step>
   );
 }
